@@ -30,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Uint8List? _image;
 
-  void register(BuildContext context) {
+  void register(BuildContext context) async {
     // auth service
 
     final _auth = AuthServices();
@@ -39,8 +39,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (passwordController.text == confirmPasswordController.text) {
       try {
-        _auth.signUpWithEmailPassword(
-            emailController.text, passwordController.text);
+        await _auth.signUpWithEmailPassword(
+          userNameController.text,
+          emailController.text,
+          passwordController.text,
+          _image!,
+        );
       } catch (e) {
         showDialog(
           context: context,
