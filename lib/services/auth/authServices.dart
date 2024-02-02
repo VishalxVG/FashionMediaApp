@@ -2,6 +2,7 @@
 
 import 'dart:typed_data';
 
+import 'package:fashion_app/components/utils/UserData.dart';
 import 'package:fashion_app/services/storage/storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,6 +14,13 @@ class AuthServices {
 
   User? getCurrentUser() {
     return _auth.currentUser;
+  }
+
+  Future<UserData> getUserData() async {
+    User currentUser = _auth.currentUser!;
+    DocumentSnapshot snap =
+        await _firestore.collection("Users").doc(currentUser.uid).get();
+    return UserData.fromSnap(snap);
   }
 
   //* SignIn
@@ -41,13 +49,16 @@ class AuthServices {
       String photoUrl = await StorageMethod()
           .uploadImageToStorage("profilePics", profileImage, false);
 
+      UserData userData = UserData(
+          userName: username,
+          email: email,
+          uid: userCredential.user!.uid,
+          photoUrl: photoUrl);
+
       //* Storing  data in firestore cloud database
-      await _firestore.collection("Users").doc(userCredential.user!.uid).set({
-        "uid": userCredential.user!.uid,
-        "email": email,
-        "username": username,
-        "photoUrl": photoUrl,
-      });
+      await _firestore.collection("Users").doc(userCredential.user!.uid).set(
+            userData.toJson(),
+          );
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
