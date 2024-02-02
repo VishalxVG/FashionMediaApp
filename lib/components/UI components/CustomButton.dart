@@ -9,13 +9,9 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      height: 40,
-      width: 100,
+    return SizedBox(
+      height: 50,
+      width: 200,
       child: ElevatedButton(
         onPressed: ontap,
         child: Text(ButtonText),
