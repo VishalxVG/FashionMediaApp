@@ -1,11 +1,12 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:fashion_app/NavBarPages/5ChatPage.dart';
-import 'package:fashion_app/NavBarPages/3DiscoverPage.dart';
-import 'package:fashion_app/NavBarPages/2GroupsPage.dart';
-import 'package:fashion_app/NavBarPages/1MyClientsPage.dart';
-import 'package:fashion_app/NavBarPages/4SharedPage.dart';
-import 'package:fashion_app/components/CustomBottomNavBar.dart';
+import 'package:fashion_app/pages/NavBarPages/5ChatPage.dart';
+import 'package:fashion_app/pages/NavBarPages/3DiscoverPage.dart';
+import 'package:fashion_app/pages/NavBarPages/2GroupsPage.dart';
+import 'package:fashion_app/pages/NavBarPages/1MyClientsPage.dart';
+import 'package:fashion_app/pages/NavBarPages/4SharedPage.dart';
+import 'package:fashion_app/components/UI%20components/CustomBottomNavBar.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

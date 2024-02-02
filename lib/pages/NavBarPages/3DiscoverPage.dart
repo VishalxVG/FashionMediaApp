@@ -7,6 +7,13 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text("Discover"),
+        centerTitle: true,
+      ),
+      drawer: Drawer(
+        width: 150,
+      ),
     );
   }
 }

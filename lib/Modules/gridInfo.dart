@@ -19,13 +19,13 @@ class GridInfo {
     gridInfos.add(
       GridInfo(
         title: "Bottoms",
-        iconPath: "assets/images/trousers.png",
+        iconPath: "assets/images/tops.png",
       ),
     );
     gridInfos.add(
       GridInfo(
         title: "Jackets",
-        iconPath: "assets/images/jackets.png",
+        iconPath: "assets/images/jeans.png",
       ),
     );
     gridInfos.add(
