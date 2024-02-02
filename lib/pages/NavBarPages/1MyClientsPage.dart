@@ -1,9 +1,12 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, no_leading_underscores_for_local_identifiers
 
 import 'package:fashion_app/Modules/gridInfo.dart';
 import 'package:fashion_app/components/UI%20components/gridTile.dart';
+import 'package:fashion_app/components/utils/UserData.dart';
+import 'package:fashion_app/components/utils/provider/UserProvider.dart';
 import 'package:fashion_app/services/auth/authServices.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ClientsPage extends StatefulWidget {
   const ClientsPage({super.key});
@@ -16,18 +19,33 @@ class _ClientsPageState extends State<ClientsPage> {
   final authService = AuthServices();
   List<GridInfo> gridInfo = [];
 
+  @override
+  void initState() {
+    super.initState();
+    addData();
+  }
+
+  addData() async {
+    UserProvider _userProvider =
+        Provider.of<UserProvider>(context, listen: false);
+    await _userProvider.refreshUser();
+  }
+
   void _getGridInfo() {
     gridInfo = GridInfo.getGrids();
   }
 
   @override
   Widget build(BuildContext context) {
+    UserData? userData = Provider.of<UserProvider>(context).getUser;
+
     _getGridInfo();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Closet'),
         centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
               onPressed: () {
@@ -41,21 +59,23 @@ class _ClientsPageState extends State<ClientsPage> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
+              backgroundColor: Theme.of(context).colorScheme.primary,
               expandedHeight: 150.0,
               flexibleSpace: FlexibleSpaceBar(
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/images/account.png",
-                      height: 60,
-                      width: 60,
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(userData!.photoUrl),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, top: 40),
                       child: Text(
-                        "hi John",
-                        style: TextStyle(fontSize: 10),
+                        "Hi ${userData.userName}",
+                        style: const TextStyle(
+                          fontSize: 10,
+                        ),
                       ),
                     )
                   ],
@@ -128,7 +148,7 @@ class _ClientsPageState extends State<ClientsPage> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Color.fromARGB(255, 159, 190, 239),
+          color: const Color.fromARGB(255, 159, 190, 239),
         ),
         height: 200,
         child: Row(
