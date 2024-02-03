@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: lightMode,
         title: 'Fashion Social Media App',
         debugShowCheckedModeBanner: false,
-        home: AuthGate(),
+        home: const AuthGate(),
       ),
     );
   }
