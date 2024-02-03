@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 ThemeData lightMode = ThemeData(
-  colorScheme: ColorScheme.light(
-    background: const Color.fromARGB(255, 217, 219, 233),
-    primary: const Color.fromRGBO(78, 81, 102, 1.000),
-    secondary: const Color.fromRGBO(184, 195, 204, 5.000),
-    tertiary: Colors.white,
-    inversePrimary: Colors.grey.shade900,
+  appBarTheme: const AppBarTheme(
+    color: Color.fromARGB(0, 0, 0, 1),
+    centerTitle: true,
+  ),
+  colorScheme: const ColorScheme.light(
+    background: Color.fromARGB(0, 0, 0, 1),
+    primary: Color.fromRGBO(20, 33, 61, 1.000),
+    secondary: Color.fromRGBO(252, 163, 17, 1.000),
+    tertiary: Color.fromRGBO(27, 38, 59, 1),
+    outline: Colors.white,
   ),
 );

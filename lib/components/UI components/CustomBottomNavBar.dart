@@ -17,14 +17,14 @@ class CustomNavigationBar extends StatelessWidget {
       onDestinationSelected: onDestinationSelected,
       animationDuration: const Duration(milliseconds: 1000),
       selectedIndex: currentPageIndex,
-      indicatorColor: const Color.fromARGB(255, 159, 190, 239),
+      indicatorColor: Colors.transparent,
       height: 60,
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.background,
       destinations: [
         NavigationDestination(
           selectedIcon: Icon(
             Icons.person_4,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           icon: const Icon(
             Icons.person_4_outlined,
@@ -35,7 +35,7 @@ class CustomNavigationBar extends StatelessWidget {
         NavigationDestination(
           selectedIcon: Icon(
             Icons.groups_3,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           icon: const Icon(Icons.groups_3_outlined, color: Colors.white),
           label: 'Groups',
@@ -43,7 +43,7 @@ class CustomNavigationBar extends StatelessWidget {
         NavigationDestination(
           selectedIcon: Icon(
             Icons.home,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           icon: const Icon(Icons.home_outlined, color: Colors.white),
           label: 'Discover',
@@ -51,7 +51,7 @@ class CustomNavigationBar extends StatelessWidget {
         NavigationDestination(
           selectedIcon: Icon(
             Icons.share,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           icon: const Icon(Icons.share_outlined, color: Colors.white),
           label: 'Shared',
@@ -59,7 +59,7 @@ class CustomNavigationBar extends StatelessWidget {
         NavigationDestination(
           selectedIcon: Icon(
             Icons.chat_bubble,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           icon: const Icon(Icons.chat_bubble_outline, color: Colors.white),
           label: 'Chat',

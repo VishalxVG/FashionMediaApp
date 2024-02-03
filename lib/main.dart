@@ -1,6 +1,7 @@
 import 'package:fashion_app/components/themes/colors.dart';
-import 'package:fashion_app/components/utils/provider/UserProvider.dart';
+
 import 'package:fashion_app/firebase_options.dart';
+import 'package:fashion_app/services/provider/UserProvider.dart';
 
 import 'package:fashion_app/services/auth/auth_gate.dart';
 
@@ -27,10 +28,10 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Fashion Social Media App',
         theme: lightMode,
+        title: 'Fashion Social Media App',
         debugShowCheckedModeBanner: false,
-        home: const AuthGate(),
+        home: AuthGate(),
       ),
     );
   }

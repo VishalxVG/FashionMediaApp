@@ -41,6 +41,9 @@ dependencies:
   firebase_storage: ^11.6.3
   provider: ^6.1.1
   image_picker: ^1.0.7
+  flutter_riverpod: ^2.4.10
+  uuid: ^4.3.3
+  firebase_app_check: ^0.2.1+12
 
 
 dev_dependencies:

@@ -15,30 +15,24 @@ class MyGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.grey[300],
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            iconPath,
-            height: 250,
+    return Column(
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            color: Theme.of(context).colorScheme.secondary,
+            fontSize: 20,
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w400,
-              color: Colors.black,
-              fontSize: 20,
-            ),
-          )
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Image.asset(
+          iconPath,
+          height: 250,
+        ),
+      ],
     );
   }
 }
