@@ -21,12 +21,24 @@ class UserData {
       };
 
   static UserData fromSnap(DocumentSnapshot snapshot) {
+    if (!snapshot.exists || snapshot.data() == null) {
+      // Handle the case where the document doesn't exist or data is null
+      return UserData(
+        userName:
+            'DefaultUserName', // Provide default values or throw an exception
+        email: 'DefaultEmail',
+        uid: 'DefaultUid',
+        photoUrl: 'DefaultPhotoUrl',
+      );
+    }
+
     var snap = snapshot.data() as Map<String, dynamic>;
+
     return UserData(
-      userName: snap["username"],
-      email: snap["email"],
-      uid: snap["uid"],
-      photoUrl: snap["photoUrl"],
+      userName: snap["username"] ?? 'DefaultUserName',
+      email: snap["email"] ?? 'DefaultEmail',
+      uid: snap["uid"] ?? 'DefaultUid',
+      photoUrl: snap["photoUrl"] ?? 'DefaultPhotoUrl',
     );
   }
 }
