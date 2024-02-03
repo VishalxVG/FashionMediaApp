@@ -12,62 +12,44 @@ class _GroupPageState extends State<GroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text("Groups"),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Column(
-              children: [
-                TextField(
-                  controller: _controller,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                    icon: const Icon(Icons.search_rounded),
-                    hintText: "Search",
-                  ),
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                fillColor: const Color.fromARGB(255, 239, 191, 123),
+                filled: true,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                icon: Icon(
+                  Icons.search_rounded,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.add_circle),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text("Create a Group"),
-                    ],
-                  ),
-                )
-              ],
+                hintText: "Search",
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Existing Groups",
                   style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.secondary),
                 ),
               ],
             ),
